@@ -46,3 +46,24 @@ function moveRight(el, arr) {
   arr[targetIndex + 1] = el
   return arr
 }
+
+// ===== solution for shifting all occurances =====
+function moveAllLeft(el, arr) {
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] === el) {
+      arr[i] = arr[i - 1]
+      arr[i - 1] = el
+    }
+  }
+  return arr
+}
+
+function moveAllRight(el, arr) {
+  for (let i = arr.length - 2; i >= 0; i--) {
+    if (arr[i] === el) {
+      arr[i] = arr[i + 1]
+      arr[i + 1] = el
+    }
+  }
+  return arr
+}
