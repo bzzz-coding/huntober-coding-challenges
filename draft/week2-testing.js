@@ -20,3 +20,29 @@ function compareArrOfArr(arr1, arr2) {
   return arr1.every((arr, i) => compareArr(arr, arr2[i]))
 }
 
+// Week 2 Day 2
+
+/*
+I need twin functions, a function that swaps a given primitive value in a given 1-dimensional array to an index to the left, and another that swaps it to the right.
+
+Some things to note:
+
+If the given value is on the edge of the array and can't move in that direction, don't move it.
+The array passed in should be mutated by this function. Scandalous, I know.
+*/
+
+function moveLeft(el, arr) {
+  let targetIndex = arr.indexOf(el)
+  if (targetIndex === 0) return arr
+  arr[targetIndex] = arr[targetIndex - 1]
+  arr[targetIndex - 1] = el
+  return arr
+}
+
+function moveRight(el, arr) {
+  let targetIndex = arr.indexOf(el)
+  if (targetIndex === arr.length - 1) return arr
+  arr[targetIndex] = arr[targetIndex + 1]
+  arr[targetIndex + 1] = el
+  return arr
+}
