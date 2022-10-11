@@ -67,3 +67,20 @@ function moveAllRight(el, arr) {
   }
   return arr
 }
+
+// Day 3
+function reorderArr(arr) {
+  let arr1 = [],
+      arr2 = [],
+      arr3 = []
+  for (let str of arr) {
+    if (str.includes('a')) arr1.push(str)
+    else if (str.length > 3) arr3.push(str)
+    else arr2.push(str)
+  }
+  return [...arr1, ...arr2, ...arr3]
+}
+
+myArr = ['hi', 'hello', 'howdy', 'hola', 'hej', 'hallo', 'heyyy']
+
+console.log(reorderArr(myArr))
