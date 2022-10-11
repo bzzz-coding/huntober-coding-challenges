@@ -84,3 +84,53 @@ function reorderArr(arr) {
 myArr = ['hi', 'hello', 'howdy', 'hola', 'hej', 'hallo', 'heyyy']
 
 console.log(reorderArr(myArr))
+
+// Day 4
+/*
+Imagine, if you will, an array with length X, with each of its entries having X number of primitives as their entries. Now imagine it arranged as a grid.
+Please write twin functions that each take in a given value that will only appear once within a given array of a similar structure to the one described above, which will either move that value up one row or down one row in the array, keeping its same horizontal position. It will essentially swap places with whatever was where it needed to be. Just like in Day 2, don't do anything if the given value is already as high or low as it can get.
+
+Oh, and go ahead and mutate the given array. We're livin' on the wild side!
+*/
+
+function moveUp(val, arr) {
+  let size = arr.length
+  let row = null,
+      position = null
+  for (let i = 0; i < size; i++) {
+    if (arr[i].includes(val)) {
+      row = i
+      position = arr[i].indexOf(val)
+    }
+  }
+  if (row > 0) {
+    arr[row][position] = arr[row-1][position]
+    arr[row-1][position] = val
+  }
+  return arr
+}
+
+function moveDown(val, arr) {
+  let size = arr.length
+  let row = null,
+      position = null
+  for (let i = 0; i < size; i++) {
+    if (arr[i].includes(val)) {
+      row = i
+      position = arr[i].indexOf(val)
+    }
+  }
+  console.log(row, position)
+  if (row < size - 1) {
+    arr[row][position] = arr[row+1][position]
+    arr[row+1][position] = val
+  }
+  return arr
+}
+
+let myGrid = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']]
+console.log(moveUp('h', myGrid))
+console.log(moveUp('h', myGrid))
+console.log(moveUp('h', myGrid))
+console.log(moveDown('f', myGrid))
+console.log(moveDown('f', myGrid))
