@@ -18,10 +18,19 @@ getAverage([1,1,1,1,1,1,1,2]), 1
 From: https://www.codewars.com/kata/563e320cee5dddcf77000158/javascript
 */
 
-function getAverage(arr) {
+function getAverage2(arr) {
   let len = arr.length
   let sum = arr.reduce((total, current) => total + current, 0)
   return Math.floor(sum/len)
+}
+
+// for loop
+function getAverage(arr) {
+  let total = 0
+  for (num of arr) {
+    total += num
+  }
+  return Math.floor(total/arr.length)
 }
 
 console.log(getAverage([2,2,2,2]),2)
