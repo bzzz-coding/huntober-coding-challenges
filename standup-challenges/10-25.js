@@ -21,12 +21,18 @@ From: https://www.codewars.com/kata/59e66e48fc3c499ec5000103
 
 // multiple the number of unique values from each subarray
 
-function uniqueValues(arr) {
+function uniqueValues1(arr) {
   obj = {}
   for (el of arr) {
     if (!obj[el]) obj[el] = true
   }
   return Object.keys(obj).length
+}
+
+// use Set
+function uniqueValues(arr) {
+  let set = new Set(arr)
+  return set.size
 }
 
 console.log(uniqueValues([8,9,10,12,5,6,8,8,6]))
