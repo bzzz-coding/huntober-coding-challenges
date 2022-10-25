@@ -45,4 +45,11 @@ function lastEven2(arr, count) {
   return result.reverse()
 }
 
+
+// filter and slice
+function lastEven3(arr, count) {
+  return arr.filter(num => num % 2 === 0).slice(-count)
+}
+
+
 // Comparing: https://jsbench.me/b7l9krj584/1
