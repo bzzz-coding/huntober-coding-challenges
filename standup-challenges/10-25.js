@@ -55,3 +55,12 @@ function charToParens(str) {
   return result
 }
 
+function convertStr(str) {
+  let result = ''
+  for (let char of str) {
+    let newChar = char === ' '? ' ' : char === char.toLowerCase() ? char.toUpperCase() : char.toLowerCase()
+    result = newChar + result
+  }
+  return result
+}
+
