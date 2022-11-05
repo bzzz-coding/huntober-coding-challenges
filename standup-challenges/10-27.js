@@ -23,3 +23,15 @@ const duplicateEncode = word => word
     return wordArr.indexOf(letter) == wordArr.lastIndexOf(letter) ? '(' : ')'
   })
   .join('')
+
+
+// Solution 2:
+function duplicateEncode(str) {
+  let result = ''
+  let lowerStr = str.toLowerCase()
+  for (let char of lowerStr) {
+    let paren = lowerStr.indexOf(char) === lowerStr.lastIndexOf(char) ? '(' : ')'
+    result += paren
+  }
+  return result
+}
