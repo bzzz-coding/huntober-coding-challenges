@@ -30,3 +30,25 @@ function findDeletedNumber(arr, mixArr) {
   return 0
 }
 
+// Solution 2
+function findDeletedNumber(arr, mixArr) {
+  if (arr.length === mixArr.lenght) return 0
+  let mixNumsObj = mixArr.reduce((obj, current) => {
+    if (obj[current] === undefined) {
+      obj[current] = true  
+    }
+    return obj 
+  }, {})
+  for (let num of arr) {
+    if (!mixNumsObj[num]) return num
+  }
+  // return 0
+}
+
+// Solution 3
+function findDeletedNumber(arr, mixArr) {
+  if (arr.length === mixArr.lenght) return 0
+  let sumOriginal = arr.reduce((sum, num) => sum += num, 0)
+  let sumMixed = mixArr.reduce((sum, num) => sum += num, 0)
+  return sumOriginal - sumMixed
+}
