@@ -21,7 +21,9 @@ From: https://www.codewars.com/kata/523f5d21c841566fde000009
 
 
 function arrayDiff(targetArr, refArr) {
-  return targetArr.filter(el => !refArr.includes(el))
+  // return targetArr.filter(el => !refArr.includes(el))
+  let refSet = new Set(refArr)
+  return targetArr.filter(el => !refSet.has(el))
 }
 
 // O(N)
@@ -30,5 +32,6 @@ function arrayDiff(targetArr, refArr) {
     if (!obj[currentEl]) obj[currentEl] = true
     return obj
   }, {})
-  return targetArr.filter(el => refObj[el])
+  return targetArr.filter(el => !refObj[el])
 }
+
