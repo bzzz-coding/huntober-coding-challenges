@@ -13,7 +13,7 @@ You have to create the function factorial that receives n and returns n!. You ha
 */
 
 function factorial(n) {
-  if (n === 1) return 1
+  if (n < 2) return 1
   return n * factorial(n - 1)
 }
 
